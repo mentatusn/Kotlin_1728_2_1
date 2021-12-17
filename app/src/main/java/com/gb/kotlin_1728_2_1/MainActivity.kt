@@ -4,8 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
-import com.gb.tets.Test
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,25 +14,25 @@ class MainActivity : AppCompatActivity() {
         // TODO создать проект в гит
         // TODO cherry-Pick ????
         setContentView(R.layout.activity_main)
-        val person = Person(age=20,name="Pavel",bio="bidsewgerswg", bio2 ="sdgsgr")
-        val person2 = Person("Pavel",12,"bio","bio2")
+        val person = Person(age = 20, name = "Pavel", bio = "bidsewgerswg", bio2 = "sdgsgr")
+        val person2 = Person("Pavel", 12, "bio", "bio2")
         //Log.d("mylogs", person.name)
-        person.newProperty= ""
+        person.newProperty = ""
 
         Log.d("mylogs", person.newProperty)
         /* Log.d("mylogs", test)
         test = "NewTest"
         Log.d("mylogs", test)*/
-        val test = Test()
         Repository.getData()
 
-        findViewById<TextView>(R.id.tv).setOnClickListener(object:View.OnClickListener {
+        val tv = findViewById<TextView>(R.id.tv)
+        tv.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
 
             }
         })
 
-        val callback = object:View.OnClickListener {
+        val callback = object : View.OnClickListener {
             override fun onClick(v: View?) {
 
             }
@@ -42,11 +43,45 @@ class MainActivity : AppCompatActivity() {
             val age = 3
         }
 
-        Log.d("mylogs", "${cat.name} ${cat.age}")
+        Log.d("mylogs", " ${cat.name} ${cat.age}")
 
         Person.test
         Person.testFun()
         Person.testPublicStaticFinal
 
+
+        var result = if (true) 1 else 2
+
+
+        tv.text = "$result"
+        Log.d("mylogs", "$result")
+        result = when (WeatherType.SNOWY) {
+            WeatherType.SUNNY -> 1
+            WeatherType.RAINY -> 2
+            WeatherType.CLOUDY -> 3
+            WeatherType.MISTY -> 4
+            WeatherType.SNOWY -> 5
+            WeatherType.HAILY -> 6
+            else -> {
+                7
+            }
+        }
+        val button = Button(this)
+        if(button is View){
+
+        }
+        Log.d("mylogs", "$result")
+
+
     }
+
+    enum class WeatherType {
+        SUNNY,
+        RAINY,
+        CLOUDY,
+        MISTY,
+        SNOWY,
+        HAILY
+    }
+
 }
