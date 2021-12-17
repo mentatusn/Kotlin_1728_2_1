@@ -3,6 +3,7 @@ package com.gb.kotlin_1728_2_1
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.gb.tets.Test
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,8 +15,9 @@ class MainActivity : AppCompatActivity() {
         //Log.d("mylogs", person.name)
         person.newProperty= ""
         Log.d("mylogs", person.newProperty)
-      /*  Log.d("mylogs", test)
+        /* Log.d("mylogs", test)
         test = "NewTest"
         Log.d("mylogs", test)*/
+        val test = Test()
     }
 }
