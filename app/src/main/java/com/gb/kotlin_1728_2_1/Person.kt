@@ -2,6 +2,19 @@ package com.gb.kotlin_1728_2_1
 
 open class Person constructor(val name:String,var age:Int=25,var bio:String="",var bio2:String="") {
 
+
+
+
+    companion object Name{
+        @JvmStatic
+        val test ="segwsger"
+        const val testPublicStaticFinal ="segwsger"
+
+        fun testFun(){
+
+        }
+    }
+
     var newProperty:String = "word"
         get() {
             return "$field $field hack"
@@ -17,6 +30,7 @@ open class Person constructor(val name:String,var age:Int=25,var bio:String="",v
 
     inner class InnerClass(){
         fun foo():String {
+            Repository.getData()
             return newProperty
         }
     }
