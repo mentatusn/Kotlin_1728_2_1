@@ -73,6 +73,23 @@ class MainActivity : AppCompatActivity() {
         Log.d("mylogs", "$result")
 
 
+        for(i in 1..20 step 2){
+            //Log.d("mylogs", "$i")
+        }
+
+        for(i in 20 downTo 0){
+            //Log.d("mylogs", "$i")
+        }
+
+        for(i in 0 until 20){
+            //Log.d("mylogs", "$i")
+        }
+
+        repeat(20){
+            Log.d("mylogs", "${it+1}")
+        }
+
+
     }
 
     enum class WeatherType {
