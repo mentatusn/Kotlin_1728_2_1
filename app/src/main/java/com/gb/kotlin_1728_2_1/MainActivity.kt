@@ -100,6 +100,9 @@ class MainActivity : AppCompatActivity() {
         for(day in daysOfWeek){
             Log.d("mylogs", "$day")
         }
+
+        val note1 = NoteKotlin("","",1)
+        val note2 = note1.copy("")
     }
 
     enum class WeatherType {
