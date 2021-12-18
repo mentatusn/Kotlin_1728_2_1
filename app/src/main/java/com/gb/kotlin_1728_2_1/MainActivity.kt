@@ -18,7 +18,6 @@ class MainActivity : AppCompatActivity() {
         val person2 = Person("Pavel", 12, "bio", "bio2")
         //Log.d("mylogs", person.name)
         person.newProperty = ""
-
         Log.d("mylogs", person.newProperty)
         /* Log.d("mylogs", test)
         test = "NewTest"
