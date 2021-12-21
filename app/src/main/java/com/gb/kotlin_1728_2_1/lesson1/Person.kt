@@ -1,4 +1,4 @@
-package com.gb.kotlin_1728_2_1
+package com.gb.kotlin_1728_2_1.lesson1
 
 open class Person constructor(val name:String,var age:Int=25,var bio:String="",var bio2:String="") {
 
