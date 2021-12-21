@@ -12,7 +12,6 @@ import com.gb.kotlin_1728_2_1.R
 import com.gb.kotlin_1728_2_1.databinding.ActivityMainBinding
 import com.gb.kotlin_1728_2_1.databinding.FragmentMainBinding
 import com.gb.kotlin_1728_2_1.viewmodel.AppState
-import com.gb.kotlin_1728_2_1.viewmodel.Error2
 import com.gb.kotlin_1728_2_1.viewmodel.MainViewModel
 
 
