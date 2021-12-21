@@ -2,4 +2,11 @@
     <string name="app_name">Kotlin_1728_2_1</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="temperature_label">Температура</string>
+    <string name="feels_like_label">Ощущается как</string>
+    <string name="city_coordinates">lt/ln: %s, %s"</string>
+    <string name="error">Error</string>
+    <string name="reload">Reload</string>
+
 </resources>
