@@ -13,6 +13,7 @@ import com.gb.kotlin_1728_2_1.databinding.ActivityMainBinding
 import com.gb.kotlin_1728_2_1.databinding.FragmentMainBinding
 import com.gb.kotlin_1728_2_1.viewmodel.AppState
 import com.gb.kotlin_1728_2_1.viewmodel.MainViewModel
+import com.google.android.material.snackbar.Snackbar
 
 
 class MainFragment : Fragment() {
@@ -32,12 +33,22 @@ class MainFragment : Fragment() {
         viewModel.getLiveData().observe(viewLifecycleOwner, Observer<AppState> { renderData(it) })
         viewModel.getWeatherFromServer()
     }
-
+/*Toast.makeText(requireContext(),"${appState.progress}",Toast.LENGTH_SHORT).show()*/
     fun renderData(appState: AppState){
         when(appState){
-            is AppState.Error -> Toast.makeText(requireContext(),appState.error.message,Toast.LENGTH_SHORT).show()
-            is AppState.Loading -> Toast.makeText(requireContext(),"${appState.progress}",Toast.LENGTH_SHORT).show()
-            is AppState.Success -> Toast.makeText(requireContext(),appState.weatherData,Toast.LENGTH_SHORT).show()
+            is AppState.Error -> {
+                binding.loadingLayout.visibility = View.GONE
+                Snackbar.make(binding.mainView,"Error",Snackbar.LENGTH_LONG).setAction("Попробовать ещше раз"){
+                    viewModel.getWeatherFromServer()
+                }.show()
+            }
+            is AppState.Loading ->{
+                binding.loadingLayout.visibility = View.VISIBLE
+            }
+            is AppState.Success -> {
+                binding.loadingLayout.visibility = View.GONE
+                Snackbar.make(binding.mainView,"Success",Snackbar.LENGTH_LONG).show()
+            }
         }
 
 
