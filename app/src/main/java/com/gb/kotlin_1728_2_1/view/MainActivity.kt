@@ -14,6 +14,7 @@ import com.gb.kotlin_1728_2_1.R
 import com.gb.kotlin_1728_2_1.databinding.ActivityMainBinding
 import com.gb.kotlin_1728_2_1.databinding.FragmentMainBinding
 import com.gb.kotlin_1728_2_1.lesson1.Repository
+import com.gb.kotlin_1728_2_1.lesson2.LessonKotlin2
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,8 +29,7 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.beginTransaction().replace(R.id.container,MainFragment.newInstance()).commit()
         }
 
-
-
+        LessonKotlin2.main()
     }
 
 
