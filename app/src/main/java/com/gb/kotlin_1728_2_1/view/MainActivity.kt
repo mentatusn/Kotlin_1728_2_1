@@ -1,9 +1,11 @@
 package com.gb.kotlin_1728_2_1.view
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import com.gb.kotlin_1728_2_1.lesson1.NoteKotlin
@@ -22,9 +24,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val isV = Button(this) as View
+        val isVG = Button(this) as? ViewGroup
         if(savedInstanceState==null){
             supportFragmentManager.beginTransaction().replace(R.id.container,MainFragment.newInstance()).commit()
         }
+
+
+
     }
 
 
