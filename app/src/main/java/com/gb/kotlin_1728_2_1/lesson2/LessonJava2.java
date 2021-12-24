@@ -1,19 +1,17 @@
 package com.gb.kotlin_1728_2_1.lesson2;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class LessonJava2 extends Object {
     void main(){
+        List<Object> strs = new ArrayList<Object>();
 
+        List<? super String> objs = strs;
+        objs.add("");
 
-        int i  =1;
-        double d = i;
-
-        LessonJava2 str= new LessonJava2();
-        if(isNull(str)){
-
-        }
-        if(str!=null){
-
-        }
+        //String s = strs.get(0);
+        //s.toLowerCase();
     }
 
     boolean isNull(LessonJava2 str){
