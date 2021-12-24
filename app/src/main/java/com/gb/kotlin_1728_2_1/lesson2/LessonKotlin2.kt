@@ -32,7 +32,8 @@ object LessonKotlin2 : Any() {
 
         Log.d("mylogs","${listFOrExt.filter { it>3 }}")
         Log.d("mylogs","${listFOrExt.sorted()}}")
-        Log.d("mylogs","${listFOrExt.last()}}")
+        Log.d("mylogs","${listFOrExt.last()} $wordCount last")
+        Log.d("mylogs", String.format("${listFOrExt.last()}"," ","last"))
     }
 
 
