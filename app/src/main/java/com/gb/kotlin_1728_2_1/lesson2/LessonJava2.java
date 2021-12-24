@@ -1,7 +1,12 @@
 package com.gb.kotlin_1728_2_1.lesson2;
 
-public class LessonJava2 {
+public class LessonJava2 extends Object {
     void main(){
+
+
+        int i  =1;
+        double d = i;
+
         LessonJava2 str= new LessonJava2();
         if(isNull(str)){
 
