@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.gb.kotlin_1728_2_1.model.RepositoryImpl
-import java.lang.IllegalStateException
 import java.lang.Thread.sleep
 
 class MainViewModel(
@@ -16,22 +15,32 @@ class MainViewModel(
         return liveData
     }
 
-    fun getWeatherFromServer() {
+    fun getWeatherFromLocalSourceRus() = getWeatherFromLocalServer(true)
+
+    fun getWeatherFromLocalSourceWorld() = getWeatherFromLocalServer(false)
+
+    fun getWeatherFromRemoteSource() = getWeatherFromLocalServer(true)//заглушка на 5 урок
+
+
+    fun getWeatherFromLocalServer(isRussian: Boolean) {
         liveData.postValue(AppState.Loading(0))
         Thread {
             sleep(1000)
             val rand = (1..40).random()
-            if (rand > 20) {
-                liveData.postValue(AppState.Success(repositoryImpl.getWeatherFromServer()))
+            if (true) {
+                liveData.postValue(
+                    AppState.Success(
+                        if (isRussian) {
+                            repositoryImpl.getWeatherFromLocalStorageRus()
+                        } else {
+                            repositoryImpl.getWeatherFromLocalStorageWorld()
+                        }
+                    )
+                )
             } else {
-                liveData.postValue(AppState.Error(IllegalStateException("")))
+               // liveData.postValue(AppState.Error(IllegalStateException("")))
             }
 
         }.start()
-    }
-
-    fun getWeather() {
-        // скоро будет какой-то переключатель
-        getWeatherFromServer()
     }
 }

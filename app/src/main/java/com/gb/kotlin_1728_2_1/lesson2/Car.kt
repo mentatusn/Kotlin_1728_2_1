@@ -1,10 +1,6 @@
 package com.gb.kotlin_1728_2_1.lesson2
 
 import android.util.Log
-import android.view.ViewGroup
-import android.widget.Button
-import android.widget.LinearLayout
-import java.util.*
 
 class Car(val name:String,val age:Int) : Any(),FlyingVehicle {
 
