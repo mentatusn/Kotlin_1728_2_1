@@ -21,31 +21,8 @@ class MainActivity : AppCompatActivity() {
         if(savedInstanceState==null){
             supportFragmentManager.beginTransaction().replace(R.id.container, MainFragment.newInstance()).commit()
         }
-
-        binding.container.setOnClickListener { TODO("Not yet implemented") }
-        //val l = LambdaJava()
-        //l.main()
-        val l = LambdaKotlin()
-        l.main()
-        l.setOnMyListener(callback)
-        l.setOnMyListener(object :LambdaKotlin.OnMyListener{
-            override fun onSomething(string: String?) {
-                // dfgdrfhrd
-            }
-        })
-        //l.setOnMyListener{callbackL}
-        // FIXME не принимает лямбду
+        LambdaKotlin().main()
     }
 
-    fun foo(pUs:String,myBlock1:(p1:Int,p2:Float)->String,myBlock2:(p1:Int,p2:Float)->String){
-
-    }
-
-    val callback = object :LambdaKotlin.OnMyListener{
-        override fun onSomething(string: String?) {
-            // dfgdrfhrd
-        }
-    }
-    val callbackL = { string: String?->  }
 
 }
