@@ -1,8 +1,18 @@
 package com.gb.kotlin_1728_2_1.lesson4
 
 import android.util.Log
+import android.view.View
 
 class LambdaKotlin {
+
+    interface OnMyListener {
+        fun onSomething(string: String?)
+    }
+
+    var mOnMyListener: OnMyListener? = null
+    fun setOnMyListener(l: OnMyListener?) {
+        mOnMyListener = l
+    }
 
     fun main() {
         val l = {
@@ -22,6 +32,15 @@ class LambdaKotlin {
         val textAnonim = anonimFun(1)
 
         anotherFun(lambdaFun,anonimFun)
+
+
+        val l3 ={param1:String,param2:Int,param3:Float ->
+            2+2
+        }
+        val result = l3("",1,1f)
+
+        mOnMyListener?.onSomething("что-то произошло")
+
     }
 
     fun anotherFun(block1:(i: Int)->String,block2:(i: Int)->String){
