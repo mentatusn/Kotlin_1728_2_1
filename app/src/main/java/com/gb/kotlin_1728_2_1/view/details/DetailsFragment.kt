@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.gb.kotlin_1728_2_1.databinding.FragmentDetailsBinding
 import com.gb.kotlin_1728_2_1.model.Weather
@@ -28,14 +29,30 @@ class DetailsFragment : Fragment() {
         if(weather!=null){
             setWeatherData(weather)
         }
+
+        context?.let {
+            binding.mainView.addView(TextView(it).apply {
+                text="newText"
+                textSize = 30f
+            })
+        }
+        context?.run {
+            binding.mainView.addView(TextView(this).also {
+                it.text="newText"
+                it.textSize = 30f
+            })
+        }
+
     }
 
     private fun setWeatherData(weather: Weather) {
-        binding.cityName.text = weather.city.name
-        binding.cityCoordinates.text =
-            "${weather.city.lat} ${weather.city.lon}"
-        binding.temperatureValue.text = "${weather.temperature}"
-        binding.feelsLikeValue.text = "${weather.feelsLike}"
+        with(binding){
+            cityName.text = weather.city.name
+            cityCoordinates.text =
+                "${weather.city.lat} ${weather.city.lon}"
+            temperatureValue.text = "${weather.temperature}"
+            feelsLikeValue.text = "${weather.feelsLike}"
+        }
     }
 
 

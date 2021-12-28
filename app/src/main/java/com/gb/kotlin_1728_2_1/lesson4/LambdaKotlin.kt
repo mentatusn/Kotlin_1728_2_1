@@ -4,34 +4,68 @@ import android.util.Log
 
 class LambdaKotlin {
 
-    private val field1 = 1
-    protected val field2 = 1
+
+    data class Person(var name: String, var age:Int)
+
     fun main() {
-        val str = "word word"
-        val charCount1 = str.length
-        val charCount2 = str.charCount('w')
-        Log.d("mylogs","$charCount2")
-    }
 
-    //fun String.charCount
+        var p:Person? = null
 
-    fun String.charCount(char: Char):Int{
-        var counter = 0
-        for (ch in this){
-            if(ch==char) counter++
+
+
+        if(p!=null){
+
+            Log.d("mylogs","${p.name} ${p.age}")
         }
-        return counter
+
+        p?.let {
+            p=null
+            Log.d("mylogs","${it.name} ${it.age}")
+        }
+        p?.run {
+            Log.d("mylogs","${this.name} ${age}")
+        }
+        val person2 = Person("",1)
+        val person = Person("",1)
+
+
+
+        //with()
+        val resultWith = with(person){
+            this.name = "sdf"
+            age = 1
+            2
+        }
+
+        //.let
+        val newPerson2 = person.let {
+            ""
+        }
+        //.run
+        run { // отдельная область видимости
+            val person2 = Person("",1)
+        }
+
+        val resultRun = person.run {
+            this.name = "ApplyName"
+            5f
+        }
+
+        //.also
+        val newPersonAlso = person.also {
+            it.name = "ApplyName"
+            it.name = "ApplyName"
+            it.age = 50
+        }
+        //.apply
+        val newPersonApply= person.apply {
+            this.name = "ApplyName"
+            name = "ApplyName"
+            age = 50
+        }
+
     }
-    fun Any.compareTo():Int{
-        return -1
-    }
 
 
-}
 
-fun LambdaKotlin.getF1():Int{
-    return 1//this.field1 не имеем доступа к private
-}
-fun LambdaKotlin.getF2():Int{
-    return 2//this.field1 не имеем доступа к protected
 }
