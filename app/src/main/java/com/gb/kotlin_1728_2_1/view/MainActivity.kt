@@ -8,6 +8,7 @@ import com.gb.kotlin_1728_2_1.R
 import com.gb.kotlin_1728_2_1.databinding.ActivityMainBinding
 import com.gb.kotlin_1728_2_1.lesson4.LambdaJava
 import com.gb.kotlin_1728_2_1.lesson4.LambdaKotlin
+import com.gb.kotlin_1728_2_1.lesson4.main
 import com.gb.kotlin_1728_2_1.view.main.MainFragment
 import org.w3c.dom.Text
 
@@ -23,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         if(savedInstanceState==null){
             supportFragmentManager.beginTransaction().replace(R.id.container, MainFragment.newInstance()).commit()
         }
-        LambdaKotlin().main()
+        main()
 
 
     }

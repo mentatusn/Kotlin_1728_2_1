@@ -8,12 +8,13 @@ import java.lang.Thread.sleep
 
 class MainViewModel(
     private val liveData: MutableLiveData<AppState> = MutableLiveData(),
-    private val repositoryImpl: RepositoryImpl = RepositoryImpl()
 ) : ViewModel() {
 
-    fun getLiveData(): LiveData<AppState> {
-        return liveData
+    private val repositoryImpl: RepositoryImpl by lazy {
+        RepositoryImpl()
     }
+
+    fun getLiveData() = liveData
 
     fun getWeatherFromLocalSourceRus() = getWeatherFromLocalServer(true)
 
@@ -27,20 +28,17 @@ class MainViewModel(
         Thread {
             sleep(1000)
             val rand = (1..40).random()
-            if (true) {
-                liveData.postValue(
-                    AppState.Success(
+            liveData.postValue(
+                AppState.Success(
+                    with(repositoryImpl) {
                         if (isRussian) {
-                            repositoryImpl.getWeatherFromLocalStorageRus()
+                            getWeatherFromLocalStorageRus()
                         } else {
-                            repositoryImpl.getWeatherFromLocalStorageWorld()
+                            getWeatherFromLocalStorageWorld()
                         }
-                    )
+                    }
                 )
-            } else {
-               // liveData.postValue(AppState.Error(IllegalStateException("")))
-            }
-
+            )
         }.start()
     }
 }
