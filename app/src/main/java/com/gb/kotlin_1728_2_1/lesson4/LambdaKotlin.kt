@@ -16,8 +16,30 @@ class LambdaKotlin {
             else
                 return@blabla 3 // вторая точка выхода
         }
+        //Log.d("mylogs", "${l()} run2")
 
-        Log.d("mylogs", "${l()} run2")
+        val textLambda = lambdaFun(1)
+        val textAnonim = anonimFun(1)
+
+        anotherFun(lambdaFun,anonimFun)
+    }
+
+    fun anotherFun(block1:(i: Int)->String,block2:(i: Int)->String){
+        Log.d("mylogs", " anotherFun ")
+        Log.d("mylogs", " ${block1(2)} ")
+        Log.d("mylogs", " ${lambdaFun(2)} ")
+        Log.d("mylogs", " ${block2(2)} ")
+        Log.d("mylogs", " ${anonimFun(2)} ")
+    }
+
+    val anonimFun = fun(inputInteger: Int): String {
+        Log.d("mylogs", "anonimFun $inputInteger ")
+        return "anonimFun" // одна точка выхода
+    }
+
+    val lambdaFun = { i: Int ->
+        Log.d("mylogs", "lambdaFun $i ")
+        "lambdaFun" // одна точка выхода
     }
 
     fun foo(): Int {
