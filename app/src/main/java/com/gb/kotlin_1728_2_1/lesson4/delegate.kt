@@ -1,7 +1,6 @@
 package com.gb.kotlin_1728_2_1.lesson4
 
 import android.util.Log
-import java.io.StringReader
 
 
 interface Base1{

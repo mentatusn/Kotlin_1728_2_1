@@ -3,9 +3,7 @@ package com.gb.kotlin_1728_2_1.view.main
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.gb.kotlin_1728_2_1.R
 import com.gb.kotlin_1728_2_1.databinding.MainRecyclerItemBinding
 import com.gb.kotlin_1728_2_1.model.Weather
 

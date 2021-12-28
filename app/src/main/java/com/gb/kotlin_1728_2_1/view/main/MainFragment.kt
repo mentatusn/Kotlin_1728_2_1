@@ -1,6 +1,5 @@
 package com.gb.kotlin_1728_2_1.view.main
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +10,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.gb.kotlin_1728_2_1.R
 import com.gb.kotlin_1728_2_1.databinding.FragmentMainBinding
 import com.gb.kotlin_1728_2_1.model.Weather
-import com.gb.kotlin_1728_2_1.view.MainActivity
 import com.gb.kotlin_1728_2_1.view.details.BUNDLE_KEY
 import com.gb.kotlin_1728_2_1.view.details.DetailsFragment
 import com.gb.kotlin_1728_2_1.viewmodel.AppState
@@ -20,7 +18,6 @@ import com.google.android.material.snackbar.Snackbar
 
 
 class MainFragment : Fragment(), OnMyItemClickListener {
-
 
     private var _binding: FragmentMainBinding? = null
     private val binding: FragmentMainBinding

@@ -1,6 +1,5 @@
 package com.gb.kotlin_1728_2_1.viewmodel
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.gb.kotlin_1728_2_1.model.RepositoryImpl
