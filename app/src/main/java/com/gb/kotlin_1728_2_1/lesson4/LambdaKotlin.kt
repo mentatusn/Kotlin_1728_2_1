@@ -5,7 +5,7 @@ import android.view.View
 
 class LambdaKotlin {
 
-    interface OnMyListener {
+    fun interface OnMyListener {
         fun onSomething(string: String?)
     }
 

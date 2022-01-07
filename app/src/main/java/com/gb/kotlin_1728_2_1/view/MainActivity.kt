@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
                 // dfgdrfhrd
             }
         })
-        //l.setOnMyListener{callbackL}
+        l.setOnMyListener{ }
         // FIXME не принимает лямбду
     }
 
