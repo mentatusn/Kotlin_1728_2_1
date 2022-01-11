@@ -11,6 +11,13 @@ android {
         viewBinding true
     }
 
+    buildTypes.each{
+        Properties properties = new Properties()
+        properties.load(project.rootProject.file("apikey.properties").newDataInputStream())
+        def apiKey = properties.getProperty("yandex_weather_api_key","")
+        it.buildConfigField "String","WEATHER_API_KEY",apiKey
+    }
+
     defaultConfig {
         applicationId "com.gb.kotlin_1728_2_1"
         minSdk 24
