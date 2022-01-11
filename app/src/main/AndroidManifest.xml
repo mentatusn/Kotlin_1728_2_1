@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.gb.kotlin_1728_2_1">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,6 +13,10 @@
         android:theme="@style/Theme.Kotlin_1728_2_1">
         <activity
             android:name=".view.MainActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".lesson5.MainActivityWebView"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
