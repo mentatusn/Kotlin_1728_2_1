@@ -49,14 +49,13 @@ class ThreadsFragment : Fragment() {
         binding.button.setOnClickListener {
             myThread.handler?.post {
                 val result = startCalculations(3)
-                //activity?.let{ activity->
+                activity?.let{ activity->
                     Handler(Looper.getMainLooper()).post {
-                        Log.d("mylogs","происходит утечка памяти в якобы фрагменте с binding $binding")
-                        binding.mainContainer.addView(TextView(it.context).apply {
+                        binding.mainContainer.addView(TextView(activity).apply {
                             text = result
                         })
                     }
-               // }
+                }
             }
         }
     }
@@ -78,8 +77,8 @@ class ThreadsFragment : Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
-        //myThread.handler?.removeCallbacksAndMessages(null)
-        //_binding = null
+        myThread.handler?.removeCallbacksAndMessages(null)
+        _binding = null
     }
 
     override fun onCreateView(
