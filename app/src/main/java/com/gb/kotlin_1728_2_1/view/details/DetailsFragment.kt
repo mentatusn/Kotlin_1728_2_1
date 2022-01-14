@@ -13,6 +13,7 @@ import com.gb.kotlin_1728_2_1.utils.WeatherLoader
 
 
 const val BUNDLE_KEY = "key"
+const val BUNDLE_KEY_WEATHER = "key_weather_dto"
 class DetailsFragment : Fragment(),WeatherLoader.OnWeatherLoaded {
 
 

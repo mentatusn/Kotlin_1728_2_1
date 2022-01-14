@@ -12,6 +12,10 @@ import com.gb.kotlin_1728_2_1.R
 import com.gb.kotlin_1728_2_1.databinding.ActivityMainBinding
 import com.gb.kotlin_1728_2_1.lesson4.main
 import com.gb.kotlin_1728_2_1.lesson6.*
+import com.gb.kotlin_1728_2_1.model.WeatherDTO
+import com.gb.kotlin_1728_2_1.view.details.BUNDLE_KEY
+import com.gb.kotlin_1728_2_1.view.details.BUNDLE_KEY_WEATHER
+import com.gb.kotlin_1728_2_1.view.details.DetailsFragment
 import com.gb.kotlin_1728_2_1.view.main.MainFragment
 import java.util.concurrent.TimeUnit
 
@@ -22,6 +26,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        if(intent.getParcelableExtra<WeatherDTO>(BUNDLE_KEY_WEATHER)!=null){
+            supportFragmentManager.beginTransaction()
+                .add(
+                    R.id.container,
+                    DetailsFragment.newInstance(
+                        Bundle().apply {
+                            putParcelable(BUNDLE_KEY, intent.getParcelableExtra<WeatherDTO>(BUNDLE_KEY_WEATHER))
+                        }
+                    ))
+                .addToBackStack("").commit()
+        }
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.container, MainFragment.newInstance()).commit()
