@@ -4,6 +4,7 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         jcenter() // Warning: this repository is going to shut down soon
+
     }
 }
 rootProject.name = "Kotlin_1728_2_1"

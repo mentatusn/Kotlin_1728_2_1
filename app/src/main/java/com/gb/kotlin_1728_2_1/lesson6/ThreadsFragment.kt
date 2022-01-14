@@ -1,11 +1,14 @@
 package com.gb.kotlin_1728_2_1.lesson6
 
+import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -24,24 +27,46 @@ import com.google.android.material.snackbar.Snackbar
 
 class ThreadsFragment : Fragment() {
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+    }
+
     private var _binding: FragmentThreadsBinding? = null
     private val binding: FragmentThreadsBinding
         get() {
             return _binding!!
         }
-
+    val myThread = MyThread()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+        myThread.start()
         binding.button.setOnClickListener {
-            Thread{
-                val result = startCalculations(2) // крупная задача
-                requireActivity().runOnUiThread {
-                    //binding.textView.text=result
-                }
-                Handler(Looper.getMainLooper()).post {
-                    binding.textView.text=result
-                }
-            }.start()
+            myThread.handler?.post {
+                val result = startCalculations(3)
+                //activity?.let{ activity->
+                    Handler(Looper.getMainLooper()).post {
+                        Log.d("mylogs","происходит утечка памяти в якобы фрагменте с binding $binding")
+                        binding.mainContainer.addView(TextView(it.context).apply {
+                            text = result
+                        })
+                    }
+               // }
+            }
+        }
+    }
+
+    class MyThread:Thread(){
+        var handler: Handler?= null
+        override fun run() {
+            Looper.prepare()
+            handler = Handler(Looper.myLooper()!!)
+            Looper.loop()
         }
     }
 
@@ -53,7 +78,8 @@ class ThreadsFragment : Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
-        _binding = null
+        //myThread.handler?.removeCallbacksAndMessages(null)
+        //_binding = null
     }
 
     override fun onCreateView(
