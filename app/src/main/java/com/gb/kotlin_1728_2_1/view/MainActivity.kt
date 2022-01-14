@@ -1,5 +1,6 @@
 package com.gb.kotlin_1728_2_1.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -7,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.gb.kotlin_1728_2_1.R
 import com.gb.kotlin_1728_2_1.databinding.ActivityMainBinding
 import com.gb.kotlin_1728_2_1.lesson4.main
+import com.gb.kotlin_1728_2_1.lesson6.MAIN_SERVICE_KEY_EXTRAS
+import com.gb.kotlin_1728_2_1.lesson6.MyService
 import com.gb.kotlin_1728_2_1.lesson6.ThreadsFragment
 import com.gb.kotlin_1728_2_1.view.main.MainFragment
 
@@ -20,6 +23,9 @@ class MainActivity : AppCompatActivity() {
         if(savedInstanceState==null){
             supportFragmentManager.beginTransaction().replace(R.id.container, MainFragment.newInstance()).commit()
         }
+        startService(Intent(this,MyService::class.java).apply {
+            //putExtra(MAIN_SERVICE_KEY_EXTRAS,"HEllo")
+        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

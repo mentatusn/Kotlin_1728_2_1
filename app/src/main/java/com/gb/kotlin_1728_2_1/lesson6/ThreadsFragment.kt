@@ -43,8 +43,6 @@ class ThreadsFragment : Fragment() {
     val myThread = MyThread()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
         myThread.start()
         binding.button.setOnClickListener {
             myThread.handler?.post {

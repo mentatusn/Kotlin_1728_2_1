@@ -25,6 +25,10 @@
             android:exported="true">
 
         </activity>
+
+        <service android:name=".lesson6.MyService">
+
+        </service>
     </application>
 
 </manifest>
