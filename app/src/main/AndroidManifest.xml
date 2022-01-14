@@ -29,6 +29,15 @@
         <service android:name=".lesson6.MyService">
 
         </service>
+        <receiver
+            android:enabled="true"
+            android:exported="true"
+            android:name=".lesson6.MyBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_AIRPLANE_MODE_CHANGED"/>
+                <action android:name="myAction"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
