@@ -29,6 +29,10 @@
         <service android:name=".lesson6.MyService">
 
         </service>
+
+        <service android:name=".view.details.DetailsService">
+
+        </service>
         <receiver
             android:enabled="true"
             android:exported="true"
