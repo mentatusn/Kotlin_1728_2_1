@@ -22,8 +22,7 @@ import javax.net.ssl.HttpsURLConnection
 const val DETAILS_SERVICE_KEY_EXTRAS = "key_"
 
 class DetailsService(name: String = "") : IntentService(name) {
-
-
+    
     override fun onHandleIntent(intent: Intent?) {
         intent?.let {
             val lat = it.getDoubleExtra(LATITUDE_EXTRA, 0.0)
@@ -31,9 +30,7 @@ class DetailsService(name: String = "") : IntentService(name) {
             loadWeather(lat, lon)
         }
     }
-
     private fun loadWeather(lat: Double, lon: Double) {
-
         val url = URL("https://api.weather.yandex.ru/v2/informers?lat=$lat&lon=$lon")
         Thread {
             val httpsURLConnection = (url.openConnection() as HttpsURLConnection).apply {
