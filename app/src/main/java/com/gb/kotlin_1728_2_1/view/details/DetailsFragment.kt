@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import coil.api.load
+import com.bumptech.glide.Glide
 import com.gb.kotlin_1728_2_1.BuildConfig
 import com.gb.kotlin_1728_2_1.databinding.FragmentDetailsBinding
 import com.gb.kotlin_1728_2_1.model.Weather
@@ -17,6 +19,7 @@ import com.gb.kotlin_1728_2_1.viewmodel.DetailsViewModel
 import com.gb.kotlin_1728_2_1.viewmodel.MainViewModel
 import com.google.android.material.snackbar.Snackbar
 import com.google.gson.Gson
+import com.squareup.picasso.Picasso
 import okhttp3.*
 import java.io.IOException
 
@@ -38,7 +41,7 @@ class DetailsFragment : Fragment() {
         with(binding) {
             when (appState) {
                 is AppState.Error -> {
-                // HW
+                    // HW
                 }
                 is AppState.Loading -> {
                     // HW
@@ -54,13 +57,13 @@ class DetailsFragment : Fragment() {
     private lateinit var localWeather: Weather
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getLiveData().observe(viewLifecycleOwner,{
+        viewModel.getLiveData().observe(viewLifecycleOwner, {
             renderData(it)
         })
         arguments?.let {
             it.getParcelable<Weather>(BUNDLE_KEY)?.let {
                 localWeather = it
-                viewModel.getWeatherFromRemoteServer(localWeather.city.lat,localWeather.city.lon)
+                viewModel.getWeatherFromRemoteServer(localWeather.city.lat, localWeather.city.lon)
             }
         }
     }
@@ -73,6 +76,17 @@ class DetailsFragment : Fragment() {
                     "${city.lat} ${city.lon}"
                 temperatureValue.text = "${weather.temperature}"
                 feelsLikeValue.text = "${weather.feelsLike}"
+
+
+//                Glide.with(headerIcon.context)
+//                    .load("https://freepngimg.com/thumb/city/36275-3-city-hd.png")
+//                    .into(headerIcon)
+
+//                Picasso.get()
+//                    .load("https://freepngimg.com/thumb/city/36275-3-city-hd.png")
+//                    .into(headerIcon)
+
+//                headerIcon.load("https://freepngimg.com/thumb/city/36275-3-city-hd.png")
             }
         }
     }
