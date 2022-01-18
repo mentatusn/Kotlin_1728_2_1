@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.gb.kotlin_1728_2_1.R
 import com.gb.kotlin_1728_2_1.databinding.FragmentMainBinding
 import com.gb.kotlin_1728_2_1.model.Weather
-import com.gb.kotlin_1728_2_1.view.details.BUNDLE_KEY
+import com.gb.kotlin_1728_2_1.utils.BUNDLE_KEY
 import com.gb.kotlin_1728_2_1.view.details.DetailsFragment
 import com.gb.kotlin_1728_2_1.viewmodel.AppState
 import com.gb.kotlin_1728_2_1.viewmodel.MainViewModel

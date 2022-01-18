@@ -13,8 +13,8 @@ import com.gb.kotlin_1728_2_1.databinding.ActivityMainBinding
 import com.gb.kotlin_1728_2_1.lesson4.main
 import com.gb.kotlin_1728_2_1.lesson6.*
 import com.gb.kotlin_1728_2_1.model.WeatherDTO
-import com.gb.kotlin_1728_2_1.view.details.BUNDLE_KEY
-import com.gb.kotlin_1728_2_1.view.details.BUNDLE_KEY_WEATHER
+import com.gb.kotlin_1728_2_1.utils.BUNDLE_KEY
+import com.gb.kotlin_1728_2_1.utils.BUNDLE_KEY_WEATHER
 import com.gb.kotlin_1728_2_1.view.details.DetailsFragment
 import com.gb.kotlin_1728_2_1.view.main.MainFragment
 import java.util.concurrent.TimeUnit

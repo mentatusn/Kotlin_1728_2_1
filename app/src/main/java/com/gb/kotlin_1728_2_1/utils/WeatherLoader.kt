@@ -30,7 +30,7 @@ class WeatherLoader(private val onWeatherLoaded: OnWeatherLoaded) {
             val httpsURLConnection = (url.openConnection() as HttpsURLConnection).apply {
                 requestMethod = "GET"
                 readTimeout = 2000
-                addRequestProperty("X-Yandex-API-Key", BuildConfig.WEATHER_API_KEY)
+                addRequestProperty(YANDEX_API_KEY, BuildConfig.WEATHER_API_KEY)
             }
             val bufferedReader = BufferedReader(InputStreamReader(httpsURLConnection.inputStream))
             val weatherDTO: WeatherDTO? =
