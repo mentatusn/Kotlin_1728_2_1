@@ -5,9 +5,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import coil.api.load
+import coil.ImageLoader
+import coil.decode.SvgDecoder
+import coil.load
+import coil.request.ImageRequest
 import com.bumptech.glide.Glide
 import com.gb.kotlin_1728_2_1.BuildConfig
 import com.gb.kotlin_1728_2_1.databinding.FragmentDetailsBinding
@@ -86,10 +90,26 @@ class DetailsFragment : Fragment() {
 //                    .load("https://freepngimg.com/thumb/city/36275-3-city-hd.png")
 //                    .into(headerIcon)
 
-//                headerIcon.load("https://freepngimg.com/thumb/city/36275-3-city-hd.png")
+                headerIcon.load("https://freepngimg.com/thumb/city/36275-3-city-hd.png")
+                weatherIcon.loadUrl("https://yastatic.net/weather/i/icons/funky/dark/${weather.icon}.svg")
             }
         }
     }
+
+    private fun ImageView.loadUrl(url: String) {
+
+        val imageLoader = ImageLoader.Builder(this.context)
+            .componentRegistry { add(SvgDecoder(this@loadUrl.context)) }
+            .build()
+
+        val request = ImageRequest.Builder(this.context)
+            .data(url)
+            .target(this)
+            .build()
+
+        imageLoader.enqueue(request)
+    }
+
 
 
     override fun onDestroy() {

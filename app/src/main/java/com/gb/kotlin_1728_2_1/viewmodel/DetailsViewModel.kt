@@ -30,7 +30,7 @@ class DetailsViewModel(
     }
 
     fun converterDTOtoModel(weatherDTO: WeatherDTO):List<Weather>{
-       return listOf(Weather(getDefaultCity(),weatherDTO.fact.temp.toInt(),weatherDTO.fact.feelsLike.toInt()))
+       return listOf(Weather(getDefaultCity(),weatherDTO.fact.temp.toInt(),weatherDTO.fact.feelsLike.toInt(),weatherDTO.fact.icon))
     }
 
     private val callback = object : Callback<WeatherDTO> {
