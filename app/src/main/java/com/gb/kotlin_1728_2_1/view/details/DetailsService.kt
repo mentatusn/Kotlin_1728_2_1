@@ -2,16 +2,10 @@ package com.gb.kotlin_1728_2_1.view.details
 
 import android.app.IntentService
 import android.content.Intent
-import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.util.Log
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.gb.kotlin_1728_2_1.BuildConfig
-import com.gb.kotlin_1728_2_1.R
 import com.gb.kotlin_1728_2_1.model.WeatherDTO
 import com.gb.kotlin_1728_2_1.utils.*
-import com.gb.kotlin_1728_2_1.view.MainActivity
 import com.google.gson.Gson
 import java.io.BufferedReader
 import java.io.InputStreamReader

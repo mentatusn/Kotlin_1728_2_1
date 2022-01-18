@@ -10,7 +10,6 @@ import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
 import com.gb.kotlin_1728_2_1.R
 import com.gb.kotlin_1728_2_1.databinding.ActivityMainBinding
-import com.gb.kotlin_1728_2_1.lesson4.main
 import com.gb.kotlin_1728_2_1.lesson6.*
 import com.gb.kotlin_1728_2_1.model.WeatherDTO
 import com.gb.kotlin_1728_2_1.utils.BUNDLE_KEY
