@@ -25,8 +25,8 @@ class MainFragment : Fragment(), OnMyItemClickListener {
             return _binding!!
         }
 
-    private val adapter: MainFragmentAdapter by lazy {
-        MainFragmentAdapter(this)
+    private val adapter: CitiesAdapter by lazy {
+        CitiesAdapter(this)
     }
     private var isRussian = true
 

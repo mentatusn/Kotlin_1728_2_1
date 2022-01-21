@@ -10,13 +10,8 @@ import retrofit2.Callback
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class RepositoryImpl : RepositoryCitiesList, RepositoryDetails {
-
-    override fun getWeatherFromLocalStorageRus() = getRussianCities()
-
-    override fun getWeatherFromLocalStorageWorld() = getWorldCities()
-
-    override fun getWeatherFromServer(lat: Double,lon: Double, callback: Callback<WeatherDTO>) {
+class RepositoryRemoteImpl : RepositoryDetails {
+        override fun getWeatherFromServer(lat: Double,lon: Double, callback: Callback<WeatherDTO>) {
         val retrofit = Retrofit.Builder()
             .baseUrl(YANDEX_API_URL)
             .addConverterFactory(

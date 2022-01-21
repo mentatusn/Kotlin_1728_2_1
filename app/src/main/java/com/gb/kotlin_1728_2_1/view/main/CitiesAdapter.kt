@@ -3,12 +3,16 @@ package com.gb.kotlin_1728_2_1.view.main
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import coil.ImageLoader
+import coil.decode.SvgDecoder
+import coil.request.ImageRequest
 import com.gb.kotlin_1728_2_1.databinding.FragmentMainRecyclerCityItemBinding
 import com.gb.kotlin_1728_2_1.model.Weather
 
-class MainFragmentAdapter(val listener: OnMyItemClickListener) :
-    RecyclerView.Adapter<MainFragmentAdapter.MainViewHolder>() {
+class CitiesAdapter(val listener: OnMyItemClickListener) :
+    RecyclerView.Adapter<CitiesAdapter.MainViewHolder>() {
 
     private var weatherData: List<Weather> = listOf()
 
@@ -21,7 +25,7 @@ class MainFragmentAdapter(val listener: OnMyItemClickListener) :
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): MainFragmentAdapter.MainViewHolder {
+    ): CitiesAdapter.MainViewHolder {
         val binding: FragmentMainRecyclerCityItemBinding =
             FragmentMainRecyclerCityItemBinding.inflate(
                 LayoutInflater.from(parent.context),
@@ -30,7 +34,7 @@ class MainFragmentAdapter(val listener: OnMyItemClickListener) :
             )
         return MainViewHolder(binding.root)
     }
-    override fun onBindViewHolder(holder: MainFragmentAdapter.MainViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CitiesAdapter.MainViewHolder, position: Int) {
         holder.bind(this.weatherData[position])
     }
     override fun getItemCount(): Int {
@@ -51,5 +55,6 @@ class MainFragmentAdapter(val listener: OnMyItemClickListener) :
                 }
             }
         }
+        
     }
 }

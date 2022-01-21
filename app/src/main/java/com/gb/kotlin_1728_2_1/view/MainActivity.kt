@@ -15,6 +15,7 @@ import com.gb.kotlin_1728_2_1.room.App
 import com.gb.kotlin_1728_2_1.utils.BUNDLE_KEY
 import com.gb.kotlin_1728_2_1.utils.BUNDLE_KEY_WEATHER
 import com.gb.kotlin_1728_2_1.view.details.DetailsFragment
+import com.gb.kotlin_1728_2_1.view.history.HistoryFragment
 import com.gb.kotlin_1728_2_1.view.main.MainFragment
 
 class MainActivity : AppCompatActivity() {
@@ -57,7 +58,6 @@ class MainActivity : AppCompatActivity() {
         editor.apply()
         
         //(applicationContext as App).
-        val listWeather = App.getHistoryWeatherDao().getAllHistoryWeather()
     }
 
     override fun onDestroy() {
@@ -75,6 +75,11 @@ class MainActivity : AppCompatActivity() {
             R.id.menu_threads -> {
                 supportFragmentManager.beginTransaction()
                     .add(R.id.container, ThreadsFragment.newInstance()).addToBackStack("").commit()
+                true
+            }
+            R.id.menu_history -> {
+                supportFragmentManager.beginTransaction()
+                    .add(R.id.container, HistoryFragment.newInstance()).addToBackStack("").commit()
                 true
             }
             else -> {
