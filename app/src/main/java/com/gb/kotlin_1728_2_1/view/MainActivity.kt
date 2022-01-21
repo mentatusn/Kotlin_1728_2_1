@@ -1,8 +1,10 @@
 package com.gb.kotlin_1728_2_1.view
 
+import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.os.Bundle
+import android.preference.PreferenceManager.getDefaultSharedPreferences
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
@@ -25,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        if(intent.getParcelableExtra<WeatherDTO>(BUNDLE_KEY_WEATHER)!=null){
+        if(intent.getParcelableExtra<WeatherDTO>(BUNDLE_KEY_WEATHER)!=null){ // TODO что здесь происходит?
             supportFragmentManager.beginTransaction()
                 .add(
                     R.id.container,
@@ -40,25 +42,22 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.container, MainFragment.newInstance()).commit()
         }
-        startService(Intent(this, MyService::class.java).apply {
-            //putExtra(MAIN_SERVICE_KEY_EXTRAS,"HEllo")
-        })
+        val sp = getSharedPreferences("TAG",Context.MODE_PRIVATE)
 
-        val manager = WorkManager.getInstance(this)
-        val worker = OneTimeWorkRequest.Builder(MyWorker::class.java)
-            .setInitialDelay(5, TimeUnit.SECONDS)
-            .build()
-        manager.enqueue(worker)
-        //manager.cancelWorkById(worker.id)
-        //manager.cancelAllWorkByTag()
-        //manager.cancelAllWork()
+        val activityP = getPreferences(Context.MODE_PRIVATE) // на уровне активити
 
-        registerReceiver(receiver, IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED))
-        registerReceiver(receiver, IntentFilter("myAction"))
+        val appP = getDefaultSharedPreferences(this) // на уровне приложения
 
-        sendBroadcast(Intent("myAction").apply {
-            putExtra(MAIN_SERVICE_KEY_EXTRAS, "HEllo")
-        })
+        appP.getString("key","")
+
+        appP.edit().putString("key","value").apply()
+
+        val editor = appP.edit()
+        editor.putString("key1","value1")
+        editor.putString("key2","value2")
+        editor.putString("key3","value3")
+        editor.putBoolean("key4",true)
+        editor.apply()
     }
 
     override fun onDestroy() {
