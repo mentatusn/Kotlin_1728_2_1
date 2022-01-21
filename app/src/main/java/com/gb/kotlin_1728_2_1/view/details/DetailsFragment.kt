@@ -1,7 +1,6 @@
 package com.gb.kotlin_1728_2_1.view.details
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,20 +11,12 @@ import coil.ImageLoader
 import coil.decode.SvgDecoder
 import coil.load
 import coil.request.ImageRequest
-import com.bumptech.glide.Glide
-import com.gb.kotlin_1728_2_1.BuildConfig
 import com.gb.kotlin_1728_2_1.databinding.FragmentDetailsBinding
 import com.gb.kotlin_1728_2_1.model.Weather
-import com.gb.kotlin_1728_2_1.model.WeatherDTO
 import com.gb.kotlin_1728_2_1.utils.*
 import com.gb.kotlin_1728_2_1.viewmodel.AppState
 import com.gb.kotlin_1728_2_1.viewmodel.DetailsViewModel
-import com.gb.kotlin_1728_2_1.viewmodel.MainViewModel
-import com.google.android.material.snackbar.Snackbar
-import com.google.gson.Gson
-import com.squareup.picasso.Picasso
 import okhttp3.*
-import java.io.IOException
 
 
 class DetailsFragment : Fragment() {

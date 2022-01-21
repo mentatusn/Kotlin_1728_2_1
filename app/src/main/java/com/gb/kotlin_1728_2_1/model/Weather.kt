@@ -1,6 +1,7 @@
 package com.gb.kotlin_1728_2_1.model
 
 import android.os.Parcelable
+import com.gb.kotlin_1728_2_1.room.App
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
@@ -12,6 +13,7 @@ data class City(val name:String,val lat:Double,val lon:Double):Parcelable
 fun getDefaultCity() = City("Москва",37.5,55.5)
 
 fun getWorldCities(): List<Weather> {
+    val listWeather = App.getHistoryWeatherDao().getAllHistoryWeather()
     return listOf(
         Weather(City("Лондон", 51.5085300, -0.1257400), 1, 2),
         Weather(City("Токио", 35.6895000, 139.6917100), 3, 4),

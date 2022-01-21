@@ -6,14 +6,9 @@ import com.gb.kotlin_1728_2_1.model.Weather
 import com.gb.kotlin_1728_2_1.model.WeatherDTO
 import com.gb.kotlin_1728_2_1.model.getDefaultCity
 import com.gb.kotlin_1728_2_1.repository.RepositoryImpl
-import com.gb.kotlin_1728_2_1.utils.YANDEX_API_URL
-import com.gb.kotlin_1728_2_1.utils.YANDEX_API_URL_END_POINT
-import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.io.IOException
-import java.lang.Thread.sleep
 
 class DetailsViewModel(
     private val liveData: MutableLiveData<AppState> = MutableLiveData(),

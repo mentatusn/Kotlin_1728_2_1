@@ -1,24 +1,21 @@
 package com.gb.kotlin_1728_2_1.view
 
 import android.content.Context
-import android.content.Intent
-import android.content.IntentFilter
 import android.os.Bundle
 import android.preference.PreferenceManager.getDefaultSharedPreferences
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.work.OneTimeWorkRequest
-import androidx.work.WorkManager
 import com.gb.kotlin_1728_2_1.R
 import com.gb.kotlin_1728_2_1.databinding.ActivityMainBinding
-import com.gb.kotlin_1728_2_1.lesson6.*
+import com.gb.kotlin_1728_2_1.lesson6.MyBroadcastReceiver
+import com.gb.kotlin_1728_2_1.lesson6.ThreadsFragment
 import com.gb.kotlin_1728_2_1.model.WeatherDTO
+import com.gb.kotlin_1728_2_1.room.App
 import com.gb.kotlin_1728_2_1.utils.BUNDLE_KEY
 import com.gb.kotlin_1728_2_1.utils.BUNDLE_KEY_WEATHER
 import com.gb.kotlin_1728_2_1.view.details.DetailsFragment
 import com.gb.kotlin_1728_2_1.view.main.MainFragment
-import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -58,6 +55,9 @@ class MainActivity : AppCompatActivity() {
         editor.putString("key3","value3")
         editor.putBoolean("key4",true)
         editor.apply()
+        
+        //(applicationContext as App).
+        val listWeather = App.getHistoryWeatherDao().getAllHistoryWeather()
     }
 
     override fun onDestroy() {
