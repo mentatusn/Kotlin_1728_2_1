@@ -4,10 +4,15 @@
     <item
         android:id="@+id/menu_history"
         android:title="History"
-        app:showAsAction="always" />
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/menu_threads"
         android:title="Потоки"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_content"
+        android:title="Content"
+        app:showAsAction="always" />
 </menu>

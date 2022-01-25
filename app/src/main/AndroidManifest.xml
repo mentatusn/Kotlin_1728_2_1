@@ -3,6 +3,8 @@
     package="com.gb.kotlin_1728_2_1">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+
 
     <application
         android:name=".room.App"
