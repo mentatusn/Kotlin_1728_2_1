@@ -34,7 +34,7 @@ class RepositoryLocalImpl : RepositoryCitiesList, RepositoryHistoryWeather {
 
         return entityList.map {
             Weather(
-                City(it.name, 0.0, 0.0), it.temperature, it.feelsLike, it.icon
+                City(it.name, 0.0, 0.0), it.temperature, it.feelsLike, it.icon4
             )
         }
 
