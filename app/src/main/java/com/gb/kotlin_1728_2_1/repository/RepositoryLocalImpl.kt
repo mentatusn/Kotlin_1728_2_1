@@ -1,14 +1,8 @@
 package com.gb.kotlin_1728_2_1.repository
 
-import com.gb.kotlin_1728_2_1.BuildConfig
 import com.gb.kotlin_1728_2_1.model.*
 import com.gb.kotlin_1728_2_1.room.App
 import com.gb.kotlin_1728_2_1.room.HistoryWeatherEntity
-import com.gb.kotlin_1728_2_1.utils.YANDEX_API_URL
-import com.google.gson.GsonBuilder
-import retrofit2.Callback
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class RepositoryLocalImpl : RepositoryCitiesList, RepositoryHistoryWeather {
 
@@ -40,7 +34,7 @@ class RepositoryLocalImpl : RepositoryCitiesList, RepositoryHistoryWeather {
 
         return entityList.map {
             Weather(
-                City(it.city, 0.0, 0.0), it.temperature, it.feelsLike, it.icon
+                City(it.name, 0.0, 0.0), it.temperature, it.feelsLike, it.icon
             )
         }
 

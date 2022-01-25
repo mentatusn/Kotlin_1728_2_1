@@ -8,5 +8,6 @@
     <string name="city_coordinates">lt/ln: %s, %s"</string>
     <string name="error">Error</string>
     <string name="reload">Reload</string>
+    <string name="authorities">com.gb.kotlin_1728_2_1.EducationContentProvider</string>
 
 </resources>
