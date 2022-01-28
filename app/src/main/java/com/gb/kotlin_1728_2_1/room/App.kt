@@ -27,7 +27,6 @@ class App : Application() {
                         HistoryDatabase::class.java,
                         DB_NAME
                     )
-                        //.allowMainThreadQueries() // TODO нужно убрать эту строку
                         .addMigrations(object : Migration(1, 2) {
                             override fun migrate(database: SupportSQLiteDatabase) {
                                 database.execSQL("ALTER TABLE history_weather_entity RENAME COLUMN icon TO icon2 ")
