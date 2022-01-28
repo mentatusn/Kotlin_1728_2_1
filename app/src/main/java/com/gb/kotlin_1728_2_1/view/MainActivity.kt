@@ -8,6 +8,7 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.gb.kotlin_1728_2_1.R
 import com.gb.kotlin_1728_2_1.databinding.ActivityMainBinding
+import com.gb.kotlin_1728_2_1.lesson10.MapsFragment
 import com.gb.kotlin_1728_2_1.lesson6.MyBroadcastReceiver
 import com.gb.kotlin_1728_2_1.lesson6.ThreadsFragment
 import com.gb.kotlin_1728_2_1.lesson9.ContentProviderFragment
@@ -72,6 +73,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
         return return when (item.itemId) {
             R.id.menu_threads -> {
                 supportFragmentManager.beginTransaction()
@@ -86,6 +88,12 @@ class MainActivity : AppCompatActivity() {
             R.id.menu_content -> {
                 supportFragmentManager.beginTransaction()
                     .add(R.id.container, ContentProviderFragment.newInstance()).addToBackStack("").commit()
+                true
+            }
+
+            R.id.menu_google_maps -> {
+                supportFragmentManager.beginTransaction()
+                    .add(R.id.container, MapsFragment()).addToBackStack("").commit()
                 true
             }
             else -> {
