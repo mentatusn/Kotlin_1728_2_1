@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.application'
+    id 'com.google.gms.google-services'
 }
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
@@ -46,6 +47,7 @@ dependencies {
     //room
     implementation 'androidx.room:room-runtime:2.3.0'
     implementation 'com.google.android.gms:play-services-maps:18.0.2'
+    implementation 'com.google.firebase:firebase-messaging:23.0.0'
     kapt 'androidx.room:room-compiler:2.3.0'
 
 
