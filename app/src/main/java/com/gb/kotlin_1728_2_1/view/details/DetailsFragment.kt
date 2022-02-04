@@ -12,21 +12,19 @@ import coil.decode.SvgDecoder
 import coil.load
 import coil.request.ImageRequest
 import com.gb.kotlin_1728_2_1.databinding.FragmentDetailsBinding
+import com.gb.kotlin_1728_2_1.databinding.FragmentMainBinding
 import com.gb.kotlin_1728_2_1.model.Weather
 import com.gb.kotlin_1728_2_1.utils.*
+import com.gb.kotlin_1728_2_1.view.BaseFragment
 import com.gb.kotlin_1728_2_1.viewmodel.AppState
 import com.gb.kotlin_1728_2_1.viewmodel.DetailsViewModel
 import okhttp3.*
 
 
-class DetailsFragment : Fragment() {
+class DetailsFragment : BaseFragment<FragmentDetailsBinding>(FragmentDetailsBinding::inflate) {
 
 
-    private var _binding: FragmentDetailsBinding? = null
-    private val binding: FragmentDetailsBinding
-        get() {
-            return _binding!!
-        }
+
 
     private val viewModel: DetailsViewModel by lazy {
         ViewModelProvider(this).get(DetailsViewModel::class.java)
@@ -109,19 +107,6 @@ class DetailsFragment : Fragment() {
     }
 
 
-
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentDetailsBinding.inflate(inflater, container, false)
-        return binding.root
-    }
 
     companion object {
         fun newInstance(bundle: Bundle) = DetailsFragment().apply { arguments = bundle }

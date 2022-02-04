@@ -22,19 +22,15 @@ import com.gb.kotlin_1728_2_1.databinding.FragmentMainBinding
 import com.gb.kotlin_1728_2_1.model.City
 import com.gb.kotlin_1728_2_1.model.Weather
 import com.gb.kotlin_1728_2_1.utils.BUNDLE_KEY
+import com.gb.kotlin_1728_2_1.view.BaseFragment
 import com.gb.kotlin_1728_2_1.view.details.DetailsFragment
 import com.gb.kotlin_1728_2_1.viewmodel.AppState
 import com.gb.kotlin_1728_2_1.viewmodel.MainViewModel
 import com.google.android.material.snackbar.Snackbar
 
 
-class MainFragment : Fragment(), OnMyItemClickListener {
+class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::inflate), OnMyItemClickListener {
 
-    private var _binding: FragmentMainBinding? = null
-    private val binding: FragmentMainBinding
-        get() {
-            return _binding!!
-        }
 
     private val adapter: CitiesAdapter by lazy {
         CitiesAdapter(this)
@@ -235,18 +231,6 @@ class MainFragment : Fragment(), OnMyItemClickListener {
         Snackbar.make(this,text,length).show()
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentMainBinding.inflate(inflater, container, false)
-        return binding.root
-    }
 
     companion object {
         fun newInstance() = MainFragment()

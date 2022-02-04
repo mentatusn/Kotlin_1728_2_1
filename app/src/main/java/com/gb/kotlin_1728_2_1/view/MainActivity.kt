@@ -37,13 +37,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.container, MainFragment.newInstance()).commit()
         }
+    }
 
-
+    fun getFCMToken(){
         // получаем токен
         FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
             if (!task.isSuccessful) {
@@ -59,7 +59,6 @@ class MainActivity : AppCompatActivity() {
 
               Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()*/
         })
-
     }
 
     override fun onDestroy() {
