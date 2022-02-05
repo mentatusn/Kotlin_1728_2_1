@@ -30,6 +30,18 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        release {
+            Properties properties = new Properties()
+            properties.load(rootProject.file("password.properties").newDataInputStream())
+            def password = properties.getProperty("password")
+            storeFile file("C:\\Dropbox\\gb\\1728.jks")
+            storePassword = password
+            keyAlias '1728'
+            keyPassword =password
+        }
+    }
+
     buildTypes {
 
         debug {
@@ -42,6 +54,7 @@ android {
             minifyEnabled false
         }
         release {
+            signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -84,7 +97,7 @@ dependencies {
 
     implementation 'com.google.code.gson:gson:2.8.8'
 
-    implementation 'com.squareup.leakcanary:leakcanary-android:2.7'
+    androidTestDebugImplementation('com.squareup.leakcanary:leakcanary-android:2.7')
 
 
     //implementation project(":tets")

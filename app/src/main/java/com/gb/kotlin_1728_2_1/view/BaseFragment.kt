@@ -32,3 +32,4 @@ abstract class BaseFragment<T : ViewBinding>(
     }
 
 }
+

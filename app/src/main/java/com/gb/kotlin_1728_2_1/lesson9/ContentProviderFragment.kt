@@ -11,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import com.gb.kotlin_1728_2_1.R
@@ -58,9 +59,19 @@ class ContentProviderFragment : Fragment() {
         }
     }
 
+    private val launcher = registerForActivityResult(ActivityResultContracts.RequestPermission()){ it->
+        if(it){
+            getContacts()
+        }else{
+
+        }
+    }
     val REQUEST_CODE = 999
     private fun myRequestPermission() {
-        requestPermissions(arrayOf(Manifest.permission.READ_CONTACTS), REQUEST_CODE)
+        //requestPermissions(arrayOf(Manifest.permission.READ_CONTACTS), REQUEST_CODE)
+
+
+        launcher.launch(Manifest.permission.READ_CONTACTS)
     }
 
     override fun onRequestPermissionsResult(
